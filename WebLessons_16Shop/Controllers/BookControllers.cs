@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using WebLessons_16Shop.Date.Interfaces;
+using WebLessons_16Shop.ViewModels;
 
 namespace WebLessons_16Shop.Controllers
 {
@@ -17,9 +18,15 @@ namespace WebLessons_16Shop.Controllers
 
         public ViewResult List()//фу-ця возращает список всех товаров 
         {
-           var books = _allBooks.Books;
-            
-            return View(books);
+            ViewBag.Title = "Страница с Книгами"; 
+
+           BooksListViewModel obj = new BooksListViewModel();
+           
+           obj.allBooks = _allBooks.Books;
+           
+           obj.bookCategory = "Книги";
+
+            return View(obj);  
         } 
 
 

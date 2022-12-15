@@ -1,35 +1,10 @@
-﻿@using WebLessons_16Shop.Date.Models
-@model IEnumerable<Book>
-
-
-
-
+﻿<h1> Каталог книг </h1>
+<h3>@ViewBag.bookCategory</h3>
 @{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>List</title>
-</head>
-<body>
-<h2>Каталог книг </h2>
-@{
-    foreach (var book in Model)
-    {
-                <div>
-                    <h2>Название:@book.name</h2>
-                    <p>Цена:@book.price.ToString("c") </p>
-                </div>
-
-
-
+    foreach (var book in Model.allBooks){
+        <div>
+            <h2>Название:@book.name</h2>
+            <p>Цена:@book.price.ToString("c") </p>
+        </div>
     }
 }
-
-
-</body>
-</html>
